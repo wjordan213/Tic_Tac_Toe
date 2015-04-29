@@ -1,7 +1,11 @@
 !function(e){if("object"==typeof exports)module.exports=e();else if("function"==typeof define&&define.amd)define(e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.TTT=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 var MoveError = _dereq_("./moveError");
 
-function Board () {
+if (typeof Boards === "undefined") {
+  window.Boards = {};
+}
+
+var Board = Boards.Board = function () {
   this.grid = Board.makeGrid();
 }
 
@@ -126,9 +130,15 @@ module.exports = Board;
 var Board = _dereq_("./board");
 var MoveError = _dereq_("./moveError");
 
-function Game () {
+if (typeof Games === "undefined") {
+  var Games = window.Games = {};
+}
+
+
+var Game = Games.Game = function () {
   this.board = new Board();
   this.currentPlayer = Board.marks[0];
+  console.log("hi i'm your game <3");
 }
 
 Game.prototype.isOver = function () {
@@ -211,5 +221,4 @@ function MoveError (msg) {
 module.exports = MoveError;
 
 },{}]},{},[3])
-(3)
 });
