@@ -43,7 +43,7 @@
       this.game.board.print();
       if (this.game.winner()) {
         alert(this.game.winner() + " has won!");
-        $(".pos").remove();
+        $(".grid").remove();
         this.setupBoard();
         this.game = new Games.Game();
       } else {
